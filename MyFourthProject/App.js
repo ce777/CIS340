@@ -1,48 +1,31 @@
 import React from 'react';
-import { Text, Image, ScrollView } from 'react-native';
+import { Text, View, SectionList } from 'react-native';
 
-const dog = {
-  uri: 'https://raw.githubusercontent.com/AbdunabiRamadan/CIS340/master/images/dog2.png',
-  width: 64,
-  height: 64
-};
-
-export default MyScrollViewApp = () => (
-
-
-    <ScrollView style={{padding: 40}}>
-      <Text style={{fontSize: 80}}>Try to scroll</Text>
-      <Image source={require('./assets/dog2.png')} 
-      style={{ width: 80, height: 80}} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Text style={{fontSize: 80}}>Try to scroll</Text>
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Text style={{fontSize: 80}}>Try to scroll</Text>
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Text style={{fontSize: 80}}>Try to scroll</Text>
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-      <Image source={dog} />
-    </ScrollView>
-);
+export default StatesApp = () => {
+  return(
+    <View style={{flex: 1, paddingTop: 34}}>
+      <SectionList 
+        sections={[
+          {title: 'A: All A States', data: ['Alabama', 'Alaska', 'Arizona', 'Arkansas']},
+          {title: 'C: All C States', data: ['California', 'Colorado', 'Conneticut']},
+          {title: 'D: All D States', data: ['Delaware']}
+        ]}//End of Sections (can add more)
+        
+        renderItem={({item}) => <Text 
+        style=
+          {{padding: 20, paddingBottom: 20, paddingTop: 20, 
+            fontSize:20, height: 44}}> 
+            {item} </Text> }
+        
+        renderSectionHeader={({section}) => <Text 
+            style=
+            {{paddingTop: 20, paddingLeft: 4, paddingRight: 4, paddingBottom: 20, 
+            fontSize: 17, fontWeight: 'bold',
+            backgroundColor: '#FFA500',}}>
+              {section.title}</Text>} //set custom color
+        
+          keyExtractor={(item,index) =>index}
+      />
+    </View>
+  ); //end of return statement
+  } 
